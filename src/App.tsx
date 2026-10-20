@@ -61,13 +61,19 @@ export const App: React.FC = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="field">
+          <label htmlFor="titleInput" className="label">
+            Title
+          </label>
+
           <input
+            id="titleInput"
             type="text"
             data-cy="titleInput"
+            className="input"
             placeholder="Enter todo title"
             value={title}
-            onChange={e => {
-              setTitle(e.target.value);
+            onChange={event => {
+              setTitle(event.target.value);
               setHasTitleError(false);
             }}
           />
@@ -75,11 +81,17 @@ export const App: React.FC = () => {
         </div>
 
         <div className="field">
+          <label htmlFor="userSelect" className="label">
+            User
+          </label>
+
           <select
+            id="userSelect"
             data-cy="userSelect"
+            className="input"
             value={userId}
-            onChange={e => {
-              setUserId(Number(e.target.value));
+            onChange={event => {
+              setUserId(Number(event.target.value));
               setHasUserError(false);
             }}
           >
@@ -95,7 +107,7 @@ export const App: React.FC = () => {
           {hasUserError && <span className="error">Please choose a user</span>}
         </div>
 
-        <button type="submit" data-cy="submitButton">
+        <button type="submit" data-cy="submitButton" className="btn-add">
           Add
         </button>
       </form>
